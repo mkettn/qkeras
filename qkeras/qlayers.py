@@ -146,7 +146,7 @@ class QInitializer(Initializer):
 # we may be replacing their instantiation by QActivation in the future.
 #
 
-
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QActivation(Layer, PrunableLayer):
   """Implements quantized activation layers."""
 
@@ -190,7 +190,7 @@ class QActivation(Layer, PrunableLayer):
   def get_prunable_weights(self):
     return []
 
-
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QAdaptiveActivation(Layer, PrunableLayer):
   """[EXPERIMENTAL] Implements an adaptive quantized activation layer using EMA.
 
@@ -490,6 +490,7 @@ class QAdaptiveActivation(Layer, PrunableLayer):
 #    1. quantization approximation is symmetric (b = 0).
 #    2. max(x) and min(x) are 1 and -1 respectively.
 #
+@tf.keras.utils.register_keras_serializable("qkeras")
 class Clip(Constraint):
   """Clips weight constraint."""
 
@@ -540,7 +541,7 @@ class Clip(Constraint):
 # Similar implementations can be seen in the references.
 #
 
-
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QDense(Dense, PrunableLayer):
   """Implements a quantized Dense layer."""
 

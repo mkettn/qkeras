@@ -41,6 +41,7 @@ from .quantizers import get_quantizer
 from tensorflow_model_optimization.python.core.sparsity.keras.prunable_layer import PrunableLayer
 
 
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QConv1D(Conv1D, PrunableLayer):
   """1D convolution layer (e.g. spatial convolution over images)."""
 
@@ -190,6 +191,7 @@ class QConv1D(Conv1D, PrunableLayer):
     return [self.kernel]
 
 
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QConv2D(Conv2D, PrunableLayer):
   """2D convolution layer (e.g. spatial convolution over images)."""
 
@@ -511,6 +513,7 @@ class QConv2DTranspose(Conv2DTranspose, PrunableLayer):
     return [self.kernel]
 
 
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QSeparableConv1D(SeparableConv1D, PrunableLayer):
   """Depthwise separable 1D convolution."""
 
@@ -686,6 +689,7 @@ class QSeparableConv1D(SeparableConv1D, PrunableLayer):
     return [self.depthwise_kernel, self.pointwise_kernel]
 
 
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QSeparableConv2D(SeparableConv2D, PrunableLayer):
   """Depthwise separable 2D convolution."""
 
@@ -844,6 +848,7 @@ class QSeparableConv2D(SeparableConv2D, PrunableLayer):
     return [self.depthwise_kernel, self.pointwise_kernel]
 
 
+@tf.keras.utils.register_keras_serializable("qkeras")
 class QDepthwiseConv2D(DepthwiseConv2D, PrunableLayer):
   """Creates quantized depthwise conv2d. Copied from mobilenet."""
 

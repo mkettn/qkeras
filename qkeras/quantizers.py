@@ -440,6 +440,7 @@ class BaseQuantizer(tf.Module):
     return ()
 
 
+@tf.keras.utils.register_keras_serializable("qkeras")
 class quantized_bits(BaseQuantizer):  # pylint: disable=invalid-name
   """Quantizes the number to a number of bits.
 
